@@ -1,0 +1,32 @@
+files:
+    infectionLinelistFilename: example/augmentedInfectionLineList.csv
+    observedLineListFilename: example/observedLineList.csv
+    
+dataRequested:
+    numSamples: 250
+    fields: [id,timeInfected,samplingLocation,sex,age,vaxDoses,GEOID,CRA_NAME,NEIGHBORHOOD_DISTRICT_NAME,PUMA5CE]
+
+samplingFrame:
+    type: samplingLocation
+    levels: [hospital,clinic,atHome]
+    probabilityModel: 
+        type: uniformRandomSample
+        timeInterval: [2011, 2019]
+    hospital: 
+        type: NEIGHBORHOOD_DISTRICT_NAME
+        levels: [Ballard,Central,Delridge Neighborhoods,Downtown,East,Greater Duwamish,Lake Union,Magnolia/Queen Anne,North,Northeast,Northwest,Southeast,Southwest, NA]
+        probabilityModel: 
+            timeInterval: [2012,2018]
+            probability: [0.05,  0.1,                 0.025,    0.10,0.05,            0.05,       0.1,               0.05,  0.2,     0.05,     0.05,    0.05,     0.025,0.1]
+    clinic: 
+        type: NEIGHBORHOOD_DISTRICT_NAME
+        levels: [Ballard,Central,Delridge Neighborhoods,Downtown,East,Greater Duwamish,Lake Union,Magnolia/Queen Anne,North,Northeast,Northwest,Southeast,Southwest, NA]
+        probabilityModel: 
+            timeInterval: [2011,2016]
+            probability: [0.0,  0.05,                 0.025,    0.15,0.05,            0.05,       0.1,               0.05,  0.25,     0.05,     0.05,    0.15,     0.025,0]
+    atHome: 
+        type: NEIGHBORHOOD_DISTRICT_NAME
+        levels: [Ballard,Central,Delridge Neighborhoods,Downtown,East,Greater Duwamish,Lake Union,Magnolia/Queen Anne,North,Northeast,Northwest,Southeast,Southwest, NA]
+        probabilityModel: 
+            timeInterval: [2011, 2019]
+            probability: [0.01,  0.01,                 0.01,    0.01,0.01,            0.01,       0.01,               0.01,  0.01,     0.01,     0.01,    0.01,     0.01,0.87]

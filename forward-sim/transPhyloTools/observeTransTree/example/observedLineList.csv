@@ -1,0 +1,251 @@
+id,timeInfected,samplingLocation,sex,age,vaxDoses,GEOID,CRA_NAME,NEIGHBORHOOD_DISTRICT_NAME,PUMA5CE
+ADCEFFB:29,2011,atHome,female,3,3,53033031605,NA,NA,11615
+AAACCGG:506,2011,clinic,female,1,7,53033010900,Georgetown,Greater Duwamish,11605
+BFEEDGB:1546,2011.0576,clinic,male,27,7,53033010300,Columbia City,Southeast,11604
+ADCEFFB:2405,2011.1152,clinic,female,4,3,53033009100,Pioneer Square/International District,Downtown,11603
+AAACCGG:2592,2011.1152,clinic,male,3,10,53033007500,Capitol Hill,East,11604
+FCAGEGC:2867,2011.1344,clinic,female,4,6,53033010702,High Point,Delridge Neighborhoods,11605
+BFEEDGB:3712,2011.1728,clinic,male,94,1,53033008800,Central Area/Squire Park,Central,11604
+ADCEFFB:3763,2011.192,clinic,female,75,3,53033009100,Pioneer Square/International District,Downtown,11603
+AAACCGG:4025,2011.192,clinic,female,99,8,53033010900,Georgetown,Greater Duwamish,11605
+BFEEDGB:4065,2011.192,clinic,female,40,0,53033010300,Columbia City,Southeast,11604
+DEACAEF:4073,2011.192,clinic,female,38,8,53033008700,Central Area/Squire Park,Central,11604
+DEACAEF:6884,2011.4224,clinic,male,79,0,53033000300,Haller Lake,Northwest,11601
+ADCEFFB:6934,2011.4416,clinic,female,33,7,53033000900,Cedar Park/Meadowbrook,North,11602
+ADCEFFB:7715,2011.5568,clinic,male,3,1,53033000700,Olympic Hills/Victory Heights,North,11602
+DEACAEF:8490,2011.7488,atHome,female,8,1,53033007600,Miller Park,East,11604
+DEACAEF:8618,2011.8064,clinic,female,63,3,53033008001,Belltown,Downtown,11603
+DEACAEF:8750,2011.8832,clinic,male,53,0,53033008002,Belltown,Downtown,11603
+ADCEFFB:8768,2011.9024,clinic,male,4,3,53033002000,Northgate/Maple Leaf,North,11602
+BECDEAB:8991,2012.056,hospital,female,3,10,53033008600,First Hill,East,11604
+BECDEAB:9346,2012.3056,hospital,male,4,3,53033005200,Wallingford,Lake Union,11602
+BECDEAB:9393,2012.3248,hospital,male,4,7,53033003900,Wedgwood/View Ridge,Northeast,11602
+BECDEAB:9449,2012.3632,hospital,female,77,0,53033002700,Green Lake,Northwest,11601
+BECDEAB:9603,2012.4016,hospital,male,5,0,53033011102,Seward Park,Southeast,11604
+BECDEAB:9766,2012.4592,clinic,female,7,3,53033005000,Wallingford,Lake Union,11601
+BECDEAB:9925,2012.4976,hospital,male,2,4,53033009800,West Seattle Junction/Genesee Hill,Southwest,11605
+BECDEAB:10951,2012.6704,hospital,male,5,10,53033011101,Columbia City,Southeast,11604
+BECDEAB:11183,2012.7088,atHome,female,2,5,53033028300,NA,NA,11611
+BECDEAB:11279,2012.728,hospital,female,31,8,53033011102,Seward Park,Southeast,11604
+BECDEAB:11533,2012.7472,hospital,male,7,1,53033008600,First Hill,East,11604
+BECDEAB:11570,2012.7472,hospital,female,58,5,53033009100,Pioneer Square/International District,Downtown,11603
+BECDEAB:11658,2012.7664,clinic,male,2,8,53033006700,Queen Anne,Magnolia/Queen Anne,11603
+BECDEAB:11802,2012.7856,hospital,female,1,7,53033008100,Downtown Commercial Core,Downtown,11603
+BECDEAB:11839,2012.7856,hospital,female,89,3,53033009900,North Delridge,Delridge Neighborhoods,11605
+BECDEAB:11854,2012.7856,hospital,male,35,0,53033030005,NA,NA,11612
+BECDEAB:11927,2012.8048,hospital,female,81,5,53033008100,Downtown Commercial Core,Downtown,11603
+BECDEAB:11962,2012.8048,hospital,female,9,0,53033027400,NA,NA,11611
+BECDEAB:12194,2012.824,hospital,male,93,3,53033000402,Broadview/Bitter Lake,Northwest,11601
+BECDEAB:12380,2012.8432,clinic,female,52,7,53033009500,Mt. Baker/North Rainier,Southeast,11604
+BECDEAB:12587,2012.8624,atHome,female,3,7,53033011401,Roxhill/Westwood,Delridge Neighborhoods,11605
+BECDEAB:12597,2012.8624,hospital,female,88,7,53033007900,Central Area/Squire Park,Central,11604
+BECDEAB:12850,2012.9008,hospital,female,4,10,53033004600,Green Lake,Northwest,11601
+BECDEAB:13055,2012.92,clinic,male,79,7,53033008002,Belltown,Downtown,11603
+BECDEAB:13206,2012.92,hospital,female,19,0,53033000700,Olympic Hills/Victory Heights,North,11602
+BECDEAB:13319,2012.9392,hospital,female,7,10,53033006800,Queen Anne,Magnolia/Queen Anne,11603
+BECDEAB:13567,2012.9584,clinic,male,15,6,53033005802,Interbay,Magnolia/Queen Anne,11603
+BECDEAB:13887,2012.9968,clinic,male,4,3,53033001100,Olympic Hills/Victory Heights,North,11602
+BECDEAB:14041,2013.016,hospital,male,4,0,53033029802,NA,NA,11614
+BECDEAB:14195,2013.0352,clinic,female,80,4,53033026001,Rainier Beach,Southeast,11610
+BECDEAB:14375,2013.0736,clinic,male,44,9,53033011600,Fauntleroy/Seaview,Southwest,11605
+BECDEAB:14410,2013.0736,hospital,female,6,6,53033011800,Rainier Beach,Southeast,11604
+BECDEAB:14590,2013.0928,hospital,female,33,8,53033007900,Central Area/Squire Park,Central,11604
+BECDEAB:14688,2013.112,hospital,female,0,5,53033006500,North Capitol Hill,East,11604
+BECDEAB:14699,2013.112,hospital,female,3,7,53033001200,Northgate/Maple Leaf,North,11602
+BECDEAB:14818,2013.1312,hospital,male,1,5,53033001300,Licton Springs,Northwest,11601
+BECDEAB:14953,2013.1696,hospital,male,29,1,53033001900,Northgate/Maple Leaf,North,11602
+BECDEAB:15329,2013.2656,hospital,male,44,3,53033007600,Miller Park,East,11604
+GGCECBG:16125,2013.7648,clinic,male,26,10,53033010300,Columbia City,Southeast,11604
+BECDEAB:16161,2013.784,clinic,female,75,10,53033005000,Wallingford,Lake Union,11601
+EEACBDF:16520,2013.8608,hospital,male,51,8,53033009600,Alki/Admiral,Southwest,11605
+EEACBDF:16533,2013.8608,clinic,male,37,5,53033010200,Seward Park,Southeast,11604
+EEACBDF:16707,2013.8992,hospital,female,0,6,53033006900,Queen Anne,Magnolia/Queen Anne,11603
+EEACBDF:17105,2013.9568,atHome,female,1,9,53033032003,NA,NA,11615
+GGCECBG:17483,2014.0144,hospital,male,31,10,53033003400,Greenwood/Phinney Ridge,Northwest,11601
+EEACBDF:17675,2014.0336,atHome,female,5,5,53033032006,NA,NA,11615
+EEACBDF:17860,2014.0528,clinic,female,40,9,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:17861,2014.0528,clinic,male,3,10,53033005802,Interbay,Magnolia/Queen Anne,11603
+EEACBDF:17887,2014.0528,clinic,female,5,0,53033007200,Cascade/Eastlake,Lake Union,11603
+GGCECBG:17974,2014.072,hospital,male,1,5,53033002000,Northgate/Maple Leaf,North,11602
+GGCECBG:17991,2014.072,hospital,male,54,3,53033007600,Miller Park,East,11604
+EEACBDF:18274,2014.0912,hospital,female,4,10,53033001100,Olympic Hills/Victory Heights,North,11602
+EEACBDF:18376,2014.0912,atHome,male,8,3,53033004700,Ballard,Ballard,11601
+EEACBDF:18490,2014.1104,hospital,female,4,7,53033005200,Wallingford,Lake Union,11602
+GGCECBG:18624,2014.1296,hospital,female,44,8,53033002700,Green Lake,Northwest,11601
+EEACBDF:18728,2014.1296,clinic,female,1,6,53033008600,First Hill,East,11604
+EEACBDF:18837,2014.1296,hospital,female,34,7,53033009200,Pioneer Square/International District,Downtown,11603
+EEACBDF:19021,2014.1488,hospital,female,19,0,53033005302,University District,Northeast,11602
+EEACBDF:19040,2014.1488,hospital,female,1,3,53033008001,Belltown,Downtown,11603
+EEACBDF:19332,2014.168,hospital,female,1,2,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:19347,2014.168,hospital,male,3,0,53033009100,Pioneer Square/International District,Downtown,11603
+EEACBDF:19393,2014.168,atHome,female,0,4,53033025102,NA,NA,11610
+GGCECBG:19399,2014.1872,hospital,female,8,2,53033007900,Central Area/Squire Park,Central,11604
+GGCECBG:20031,2014.2256,hospital,female,21,1,53033010701,High Point,Delridge Neighborhoods,11605
+EEACBDF:20072,2014.2256,hospital,male,3,6,53033010300,Columbia City,Southeast,11604
+EEACBDF:20172,2014.2256,hospital,male,5,3,53033007600,Miller Park,East,11604
+EEACBDF:20439,2014.2448,hospital,male,1,1,53033002100,Wedgwood/View Ridge,Northeast,11602
+EEACBDF:20460,2014.2448,hospital,female,77,3,53033010100,Columbia City,Southeast,11604
+EEACBDF:20652,2014.2448,hospital,male,4,7,53033004500,Wallingford,Lake Union,11602
+EEACBDF:21295,2014.2832,hospital,male,5,6,53033007900,Central Area/Squire Park,Central,11604
+EEACBDF:21512,2014.2832,clinic,male,32,8,53033001900,Northgate/Maple Leaf,North,11602
+EEACBDF:21639,2014.3024,clinic,male,2,0,53033002800,Greenwood/Phinney Ridge,Northwest,11601
+EEACBDF:21871,2014.3024,hospital,female,83,3,53033001200,Northgate/Maple Leaf,North,11602
+EEACBDF:21887,2014.3024,hospital,female,1,7,53033006900,Queen Anne,Magnolia/Queen Anne,11603
+EEACBDF:21934,2014.3024,hospital,male,1,7,53033027100,NA,NA,11611
+EEACBDF:22114,2014.3216,hospital,male,7,0,53033008100,Downtown Commercial Core,Downtown,11603
+EEACBDF:22244,2014.3216,hospital,male,3,7,53033007600,Miller Park,East,11604
+EEACBDF:22253,2014.3216,hospital,male,74,10,53033032102,NA,NA,11615
+EEACBDF:22324,2014.3216,hospital,male,8,8,53033007200,Cascade/Eastlake,Lake Union,11603
+EEACBDF:22437,2014.3216,hospital,male,25,6,53033007900,Central Area/Squire Park,Central,11604
+EEACBDF:22631,2014.3408,clinic,female,89,3,53033005000,Wallingford,Lake Union,11601
+EEACBDF:22943,2014.3408,hospital,male,3,1,53033025500,NA,NA,11610
+EEACBDF:22975,2014.3408,hospital,female,52,3,53033005400,Fremont,Lake Union,11601
+EEACBDF:23140,2014.36,clinic,female,84,10,53033005900,Queen Anne,Magnolia/Queen Anne,11603
+EEACBDF:23253,2014.36,hospital,female,2,8,53033010800,Riverview,Delridge Neighborhoods,11605
+EEACBDF:23262,2014.36,hospital,female,5,7,53033008100,Downtown Commercial Core,Downtown,11603
+EEACBDF:23274,2014.36,clinic,female,43,7,53033000200,Olympic Hills/Victory Heights,North,11602
+EEACBDF:23429,2014.36,clinic,female,96,10,53033004900,Fremont,Lake Union,11601
+EEACBDF:23492,2014.3792,hospital,male,2,0,53033007900,Central Area/Squire Park,Central,11604
+EEACBDF:23842,2014.3792,hospital,female,24,1,53033004400,University District,Northeast,11602
+EEACBDF:24208,2014.3984,clinic,male,27,3,53033010001,North Beacon Hill/Jefferson Park,Greater Duwamish,11605
+EEACBDF:24281,2014.3984,hospital,female,8,7,53033011002,South Beacon Hill/NewHolly,Greater Duwamish,11605
+EEACBDF:24483,2014.4176,hospital,female,8,2,53033001200,Northgate/Maple Leaf,North,11602
+EEACBDF:24486,2014.4176,clinic,male,66,2,53033009500,Mt. Baker/North Rainier,Southeast,11604
+EEACBDF:24598,2014.4176,hospital,male,3,3,53033007300,Cascade/Eastlake,Lake Union,11603
+EEACBDF:24615,2014.4176,hospital,male,92,3,53033009100,Pioneer Square/International District,Downtown,11603
+EEACBDF:24621,2014.4176,hospital,female,38,3,53033004900,Fremont,Lake Union,11601
+EEACBDF:25282,2014.4368,hospital,female,7,9,53033022102,NA,NA,11606
+EEACBDF:25479,2014.456,clinic,male,48,10,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:25511,2014.456,hospital,male,1,2,53033009100,Pioneer Square/International District,Downtown,11603
+EEACBDF:25530,2014.456,clinic,male,1,9,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:25571,2014.456,hospital,female,88,8,53033011800,Rainier Beach,Southeast,11604
+EEACBDF:26118,2014.4752,hospital,female,2,6,53033001900,Northgate/Maple Leaf,North,11602
+EEACBDF:26226,2014.4752,clinic,female,69,10,53033004900,Fremont,Lake Union,11601
+EEACBDF:26247,2014.4752,clinic,female,85,3,53033002100,Wedgwood/View Ridge,Northeast,11602
+EEACBDF:26430,2014.4944,clinic,female,2,1,53033026001,Rainier Beach,Southeast,11610
+EEACBDF:26784,2014.5136,hospital,female,4,9,53033005801,Interbay,Magnolia/Queen Anne,11603
+EEACBDF:27048,2014.5136,clinic,female,0,6,53033008001,Belltown,Downtown,11603
+EEACBDF:27129,2014.5136,atHome,male,70,3,53033032703,NA,NA,11616
+EEACBDF:27538,2014.552,hospital,male,96,0,53033008002,Belltown,Downtown,11603
+EEACBDF:27588,2014.552,clinic,female,2,10,53033002100,Wedgwood/View Ridge,Northeast,11602
+EEACBDF:27711,2014.552,clinic,female,8,5,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:27752,2014.552,hospital,male,76,0,53033001100,Olympic Hills/Victory Heights,North,11602
+EEACBDF:28092,2014.5712,clinic,male,27,7,53033008200,First Hill,East,11603
+EEACBDF:28293,2014.5904,clinic,female,36,3,53033006600,Cascade/Eastlake,Lake Union,11603
+EEACBDF:28562,2014.5904,atHome,male,1,2,53033025003,NA,NA,11608
+EEACBDF:28757,2014.6096,hospital,male,3,8,53033004301,Ravenna/Bryant,Northeast,11602
+EEACBDF:29067,2014.6288,hospital,female,1,3,53033009100,Pioneer Square/International District,Downtown,11603
+EEACBDF:29238,2014.648,clinic,female,1,0,53033010900,Georgetown,Greater Duwamish,11605
+EEACBDF:29493,2014.6672,clinic,female,62,10,53033007300,Cascade/Eastlake,Lake Union,11603
+EEACBDF:29511,2014.6672,hospital,male,87,0,53033032215,NA,NA,11609
+EEACBDF:29843,2014.6864,hospital,male,8,3,53033004900,Fremont,Lake Union,11601
+EEACBDF:30122,2014.7248,clinic,male,7,0,53033026001,Rainier Beach,Southeast,11610
+EEACBDF:30644,2014.7824,hospital,female,98,7,53033008600,First Hill,East,11604
+EEACBDF:30653,2014.7824,clinic,male,1,5,53033006600,Cascade/Eastlake,Lake Union,11603
+EEACBDF:30665,2014.7824,hospital,male,31,1,53033007900,Central Area/Squire Park,Central,11604
+EEACBDF:31065,2014.84,clinic,male,43,3,53033009100,Pioneer Square/International District,Downtown,11603
+EEACBDF:31503,2014.936,atHome,female,3,0,53033020200,NA,NA,11606
+DDCGCAD:31580,2014.936,clinic,female,2,7,53033010702,High Point,Delridge Neighborhoods,11605
+DADCDBA:31743,2014.9744,clinic,male,16,7,53033005100,Wallingford,Lake Union,11601
+DDCGCAD:32066,2015.0704,hospital,female,16,1,53033011500,Roxhill/Westwood,Delridge Neighborhoods,11605
+DDCGCAD:32142,2015.0896,hospital,female,6,7,53033002000,Northgate/Maple Leaf,North,11602
+EEACBDF:32174,2015.1088,clinic,male,43,3,53033004500,Wallingford,Lake Union,11602
+DDCGCAD:32494,2015.2048,hospital,male,6,4,53033025301,NA,NA,11610
+DDCGCAD:32510,2015.2048,clinic,female,2,10,53033010701,High Point,Delridge Neighborhoods,11605
+DDCGCAD:32946,2015.4736,hospital,female,2,1,53033002000,Northgate/Maple Leaf,North,11602
+DDCGCAD:32954,2015.4736,clinic,female,2,1,53033001900,Northgate/Maple Leaf,North,11602
+DDCGCAD:33090,2015.608,clinic,male,7,4,53033009100,Pioneer Square/International District,Downtown,11603
+AADFFAF:33549,2015.992,hospital,female,1,7,53033009900,North Delridge,Delridge Neighborhoods,11605
+AADFFAF:33585,2015.992,atHome,male,0,4,53033022300,NA,NA,11607
+AADFFAF:33904,2016.088,hospital,female,7,9,53033005802,Interbay,Magnolia/Queen Anne,11603
+AADFFAF:34006,2016.1072,hospital,male,62,6,53033009701,Alki/Admiral,Southwest,11605
+AADFFAF:34154,2016.1456,hospital,male,7,1,53033000900,Cedar Park/Meadowbrook,North,11602
+AADFFAF:34378,2016.184,hospital,female,58,6,53033002600,Ravenna/Bryant,Northeast,11602
+AADFFAF:34576,2016.2224,hospital,male,0,3,53033006900,Queen Anne,Magnolia/Queen Anne,11603
+AADFFAF:34695,2016.2416,hospital,female,81,7,53033009500,Mt. Baker/North Rainier,Southeast,11604
+AADFFAF:34715,2016.2416,hospital,male,39,3,53033004400,University District,Northeast,11602
+AADFFAF:34938,2016.2608,hospital,male,2,3,53033000900,Cedar Park/Meadowbrook,North,11602
+AADFFAF:35159,2016.2992,hospital,female,2,3,53033009500,Mt. Baker/North Rainier,Southeast,11604
+AADFFAF:35180,2016.2992,hospital,female,0,0,53033010200,Seward Park,Southeast,11604
+AADFFAF:35465,2016.3184,hospital,male,26,9,53033000100,Cedar Park/Meadowbrook,North,11602
+AADFFAF:35495,2016.3184,hospital,female,4,3,53033011900,Rainier Beach,Southeast,11604
+AADFFAF:35801,2016.3568,hospital,female,3,5,53033031907,NA,NA,11610
+AADFFAF:36290,2016.3952,hospital,female,1,4,53033001100,Olympic Hills/Victory Heights,North,11602
+AADFFAF:36823,2016.4528,hospital,female,39,4,53033006500,North Capitol Hill,East,11604
+AADFFAF:37213,2016.472,hospital,female,5,5,53033009200,Pioneer Square/International District,Downtown,11603
+AADFFAF:37306,2016.472,hospital,male,6,0,53033007800,Madrona/Leschi,Central,11604
+AADFFAF:37467,2016.4912,hospital,male,59,7,53033007900,Central Area/Squire Park,Central,11604
+AADFFAF:37741,2016.5104,hospital,male,1,3,53033007700,Central Area/Squire Park,Central,11604
+AADFFAF:38057,2016.5296,hospital,female,66,1,53033007200,Cascade/Eastlake,Lake Union,11603
+AADFFAF:38221,2016.5296,atHome,male,13,3,53033024500,NA,NA,11609
+AADFFAF:38421,2016.5488,hospital,male,44,7,53033007900,Central Area/Squire Park,Central,11604
+AADFFAF:38496,2016.5488,hospital,female,9,8,53033024702,NA,NA,11609
+AADFFAF:38870,2016.568,hospital,female,77,1,53033011002,South Beacon Hill/NewHolly,Greater Duwamish,11605
+AADFFAF:39383,2016.6064,hospital,female,5,0,53033009000,Judkins Park,Central,11604
+AADFFAF:39924,2016.6256,hospital,male,8,0,53033000900,Cedar Park/Meadowbrook,North,11602
+AADFFAF:40096,2016.6256,hospital,female,40,5,53033009200,Pioneer Square/International District,Downtown,11603
+AADFFAF:40358,2016.6448,hospital,female,35,9,53033005400,Fremont,Lake Union,11601
+AADFFAF:40453,2016.6448,hospital,male,0,4,53033005400,Fremont,Lake Union,11601
+AADFFAF:40567,2016.664,hospital,male,25,1,53033000900,Cedar Park/Meadowbrook,North,11602
+AADFFAF:41295,2016.6832,hospital,male,2,3,53033007200,Cascade/Eastlake,Lake Union,11603
+AADFFAF:41329,2016.6832,hospital,male,0,5,53033011101,Columbia City,Southeast,11604
+AADFFAF:41503,2016.7024,hospital,female,0,3,53033032103,NA,NA,11609
+AADFFAF:42722,2016.76,hospital,female,33,10,53033006800,Queen Anne,Magnolia/Queen Anne,11603
+AADFFAF:42983,2016.76,hospital,male,0,3,53033022005,NA,NA,11607
+AADFFAF:43042,2016.76,hospital,female,2,6,53033007600,Miller Park,East,11604
+AADFFAF:43272,2016.7792,hospital,male,60,0,53033006300,Madison Park,East,11604
+AADFFAF:43532,2016.7984,hospital,male,40,7,53033008900,Madrona/Leschi,Central,11604
+AADFFAF:43658,2016.7984,hospital,female,1,5,53033005000,Wallingford,Lake Union,11601
+AADFFAF:43762,2016.7984,hospital,female,73,1,53033003900,Wedgwood/View Ridge,Northeast,11602
+AADFFAF:43805,2016.7984,hospital,female,32,10,53033006800,Queen Anne,Magnolia/Queen Anne,11603
+AADFFAF:44038,2016.8176,hospital,male,1,0,53033011800,Rainier Beach,Southeast,11604
+AADFFAF:44245,2016.8176,hospital,male,0,3,53033002600,Ravenna/Bryant,Northeast,11602
+AADFFAF:44701,2016.8368,hospital,female,7,8,53033001701,Greenwood/Phinney Ridge,Northwest,11601
+AADFFAF:44921,2016.856,hospital,female,3,3,53033001100,Olympic Hills/Victory Heights,North,11602
+AADFFAF:44974,2016.856,hospital,female,5,7,53033010300,Columbia City,Southeast,11604
+AADFFAF:45398,2016.8752,hospital,female,39,7,53033003200,Sunset Hill/Loyal Heights,Ballard,11601
+AADFFAF:45961,2016.8944,atHome,female,53,3,53033031603,NA,NA,11615
+AADFFAF:46112,2016.8944,hospital,male,25,10,53033005000,Wallingford,Lake Union,11601
+AADFFAF:46287,2016.9136,hospital,female,4,0,53033005302,University District,Northeast,11602
+AADFFAF:46734,2016.9328,hospital,female,1,1,53033000200,Olympic Hills/Victory Heights,North,11602
+AADFFAF:47163,2016.952,hospital,male,2,2,53033011200,South Park,Greater Duwamish,11605
+AADFFAF:47224,2016.952,hospital,male,3,6,53033010200,Seward Park,Southeast,11604
+AADFFAF:47342,2016.952,atHome,female,0,7,53033007200,Cascade/Eastlake,Lake Union,11603
+AADFFAF:47344,2016.952,hospital,male,0,3,53033011101,Columbia City,Southeast,11604
+AADFFAF:47456,2016.9712,hospital,male,4,0,53033003200,Sunset Hill/Loyal Heights,Ballard,11601
+AADFFAF:47553,2016.9712,hospital,male,3,6,53033000800,Cedar Park/Meadowbrook,North,11602
+AADFFAF:47647,2016.9712,hospital,female,4,3,53033001000,Cedar Park/Meadowbrook,North,11602
+AADFFAF:47738,2016.9904,hospital,female,4,1,53033007700,Central Area/Squire Park,Central,11604
+AADFFAF:48061,2017.0096,hospital,male,14,0,53033006400,Miller Park,East,11604
+AADFFAF:48466,2017.0288,hospital,female,2,7,53033007500,Capitol Hill,East,11604
+AADFFAF:49026,2017.0672,hospital,male,39,7,53033009100,Pioneer Square/International District,Downtown,11603
+AADFFAF:49492,2017.1056,hospital,female,0,7,53033007600,Miller Park,East,11604
+AADFFAF:49798,2017.1248,hospital,female,43,8,53033002000,Northgate/Maple Leaf,North,11602
+AADFFAF:50020,2017.144,hospital,male,78,1,53033005000,Wallingford,Lake Union,11601
+AADFFAF:50205,2017.1632,hospital,female,8,1,53033009100,Pioneer Square/International District,Downtown,11603
+AADFFAF:50230,2017.1632,hospital,male,2,3,53033007401,Capitol Hill,East,11603
+AADFFAF:50430,2017.2016,hospital,female,75,3,53033009400,North Beacon Hill/Jefferson Park,Greater Duwamish,11605
+AADFFAF:50805,2017.2592,hospital,female,32,3,53033025003,NA,NA,11608
+AADFFAF:50938,2017.2784,hospital,female,0,0,53033007900,Central Area/Squire Park,Central,11604
+GDCEDCB:51011,2017.2784,atHome,female,4,3,53033027900,NA,NA,11611
+GDCEDCB:51357,2017.3552,hospital,male,6,1,53033000800,Cedar Park/Meadowbrook,North,11602
+GDCEDCB:51577,2017.4128,hospital,female,2,3,53033008001,Belltown,Downtown,11603
+GDCEDCB:51722,2017.4512,hospital,male,4,8,53033000800,Cedar Park/Meadowbrook,North,11602
+GDCEDCB:51829,2017.4896,hospital,male,63,8,53033008100,Downtown Commercial Core,Downtown,11603
+GDCEDCB:51873,2017.4896,hospital,female,1,10,53033001200,Northgate/Maple Leaf,North,11602
+GDCEDCB:51918,2017.5088,hospital,male,35,9,53033006900,Queen Anne,Magnolia/Queen Anne,11603
+GDCEDCB:52035,2017.528,hospital,female,1,7,53033008001,Belltown,Downtown,11603
+GDCEDCB:52066,2017.5472,hospital,male,44,0,53033005100,Wallingford,Lake Union,11601
+GDCEDCB:52174,2017.5664,hospital,female,2,1,53033007401,Capitol Hill,East,11603
+GDCEDCB:52464,2017.624,hospital,male,18,3,53033010200,Seward Park,Southeast,11604
+GDCEDCB:52768,2017.6816,hospital,male,63,7,53033007700,Central Area/Squire Park,Central,11604
+GDCEDCB:52846,2017.7008,hospital,male,4,10,53033004800,Fremont,Lake Union,11601
+GDCEDCB:53158,2017.7584,hospital,male,1,6,53033001100,Olympic Hills/Victory Heights,North,11602
+GDCEDCB:53390,2017.7968,hospital,male,0,4,53033028700,NA,NA,11611
+GDCEDCB:53397,2017.7968,hospital,female,37,6,53033000100,Cedar Park/Meadowbrook,North,11602
+GDCEDCB:53492,2017.816,hospital,male,4,0,53033020100,NA,NA,11606
+GDCEDCB:54266,2017.912,hospital,female,8,1,53033002400,Wedgwood/View Ridge,Northeast,11602
+BBGGAEC:54754,2017.9504,hospital,male,6,4,53033008002,Belltown,Downtown,11603
+BBGGAEC:55153,2017.9888,hospital,female,1,2,53033000100,Cedar Park/Meadowbrook,North,11602
+BBGGAEC:61468,2018.4112,atHome,female,77,10,53033023500,NA,NA,11608
+BBGGAEC:63335,2018.4688,atHome,female,3,1,53033032211,NA,NA,11609

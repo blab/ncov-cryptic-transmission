@@ -8,5 +8,7 @@ Following its emergence in Wuhan, China, in late November or early December 2019
 
 # Organization
 
-* `augur-build`: Contains consensus SARS-CoV-2 genomes in `data/` and a reproducible Nextstrain phylogenetic pipeline
-* `beast`: Contains XML with genome data, BEAST output and a Mathematica notebook to generate figures
+* `augur-build`: Contains consensus SARS-CoV-2 genomes in `data/` and a reproducible Nextstrain phylogenetic pipeline. Results of this pipeline are viewable at [nextstrain.org/community/blab/ncov-cryptic-transmission/wa1-clade](https://nextstrain.org/community/blab/ncov-cryptic-transmission/wa1-clade) (Figure 1a).
+* `beast`: Contains XML with genome data, BEAST output and a Mathematica analysis notebook (Figure 1b)
+* `forward-sim`: Contains MatLab code to conduct forward simulation (Figure 3)
+* Figure 2 and Supp Figure 1 are generated from the Nextstrain `ncov` build run on 25 March 2020 available at [nextstrain.org/ncov/2020-03-25](https://nextstrain.org/ncov/2020-03-25). The code to reproduce these figures is available at commit [3ac03a9a](https://github.com/nextstrain/ncov/tree/3ac03a9a80dc4dd28aa8e44dd1312e6531f3a6ea).

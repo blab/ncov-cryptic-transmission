@@ -79,7 +79,7 @@
   ],
   "display_defaults": {
     "color_by": "division",
-    "distance_measure": "num_date",
+    "distance_measure": "div",
     "geo_resolution": "division",
     "map_triplicate": true,
     "branch_label": "none"

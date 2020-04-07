@@ -1,0 +1,82 @@
+# configuration for treeClusterSim
+
+simulation:
+    startTime: 2019.87
+    totalTime: 0.1667
+    timeStep: 0.0027
+    seed: clock
+    name: SEIR_COVID
+
+files:
+    infectionLinelistFilename: output/SEIR_COVID/SEIR_COVID_infectionList.csv
+    clusterLinelistFilename: output/SEIR_COVID/SEIR_COVID_clusterList.csv
+    incidenceSummaryFilename: output/SEIR_COVID/SEIR_COVID_incidenceSummary.png        
+    timeTreeFilename: output/SEIR_COVID/SEIR_COVID_phyloTree.tre        
+    treeDataFilename: output/SEIR_COVID/SEIR_COVID_phyloTree_metadata.csv        
+
+clusterModel:
+    type: stochasticSEIR
+    params:
+        latentDuration:
+            distribution: positiveNormal
+            params:
+                mu: 0.011
+                sigma: 0.0027
+        infectiousDuration:
+            distribution: positiveNormal
+            params:
+                mu: 0.0192
+                sigma: 0.0055
+        beta: 
+            distribution: positiveNormal
+            params:
+                mu: 120
+                sigma: 120
+        N:
+            distribution: lognormalInteger
+            params:
+                mu: 6
+                sigma: 1
+        seasonality:
+            params:
+                amplitude: 0
+                phase: 0
+                period: 1
+
+branchingModel: 
+    type: perInfection
+    params:
+        branchingBeta:
+            distribution: fixed
+            value: 0.02
+
+importationModel: 
+    type: denovoPerTimestep
+    params:
+        newClusterBeta:
+            distribution: fixed
+            value: 0
+        N:
+            distribution: lognormalInteger
+            params:
+                mu: 12
+                sigma: 4
+        infections: 
+            distribution: fixed
+            value: 1
+
+        
+initialConditions:
+    type: fixed
+    clusters:
+        distribution: fixed
+        value: 1
+        params: 
+            N:
+                distribution: fixed
+                value: 1e6
+            latents:
+                distribution: fixed
+                value: 1
+            
+        
