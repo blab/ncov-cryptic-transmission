@@ -1,0 +1,202 @@
+location	Wuhan	#5E1D9D
+location	Tianmen	#591DA1
+location	Hefei	#551EA5
+location	Jingzhou	#501EA9
+location	Pingxiang	#4E20AC
+location	Zhongxian	#4C24AF
+location	Yongchuan	#4A27B2
+location	Chongqing	#492AB5
+location	Suzhou	#472DB8
+location	Chengdu	#4530BB
+location	Kunming	#4433BE
+location	Hangzhou	#4236C1
+location	Guangdong	#4039C4
+location	Shenzhen	#403DC5
+location	Zhuhai	#4041C7
+location	Huaian	#3F45C8
+location	Qingdao	#3F49C9
+location	Guangzhou	#3F4DCB
+location	Foshan	#3F51CC
+location	Hong Kong	#3F54CD
+location	Taipei	#3E58CF
+location	Taoyuan	#3E5CD0
+location	Kaohsiung	#3F60D0
+location	Bangkok	#4063CF
+location	Aichi	#4067CF
+location	Tokyo	#416BCF
+location	Kyoto	#416ECE
+location	Gyeonggi	#4272CE
+location	Chungcheongnam	#4375CD
+location	Seoul	#4379CD
+location	Kathmandu	#447DCC
+location	Thanh Hoa	#457FCB
+location	Hanoi	#4682C9
+location	Bangkok	#4785C7
+location	Singapore	#4988C5
+location	Gold Coast	#4A8BC3
+location	Sydney	#4B8EC2
+location	Melbourne	#4C90C0
+location	Brisbane	#4D93BE
+location	Rockhampton	#4E96BC
+location	Clayton	#5098B9
+location	Auckland	#529AB6
+location	Riyadh	#539CB4
+location	Hawali	#559EB1
+location	Dasman	#56A0AE
+location	Heinsberg District	#58A2AC
+location	Heinsberg	#59A4A9
+location	Munich	#5BA6A6
+location	Duesseldorf	#5DA8A3
+location	Delft	#5FA9A0
+location	Utrecht	#61AA9D
+location	Zeewolde	#63AC9A
+location	Loon op zand	#65AD97
+location	Berlicum	#67AE94
+location	Blaricum	#69B091
+location	Hardinxveld Giessendam	#6BB18E
+location	Coevorden	#6DB28B
+location	Diemen	#6FB388
+location	Nootdorp	#71B485
+location	Naarden	#74B583
+location	Eindhoven	#76B680
+location	Houten	#78B77D
+location	Haarlem	#7BB77A
+location	Nieuwendijk	#7DB877
+location	Andel	#80B974
+location	Rotterdam	#82BA71
+location	Oss	#85BA6F
+location	Tilburg	#87BB6D
+location	Helmond	#8ABB6A
+location	Oisterwijk	#8DBC68
+location	Dalen	#8FBC65
+location	Budapest	#92BC63
+location	Nantes	#95BD61
+location	Crépy en Valois	#98BD5E
+location	Paris	#9ABE5C
+location	Reims	#9DBE5A
+location	garches	#A0BE58
+location	rennes	#A3BE57
+location	château-thierry	#A5BE55
+location	longjumeau	#A8BD53
+location	Levallois-perret	#ABBD52
+location	Pontoise	#AEBD50
+location	Compiègne	#B1BD4E
+location	Contamines	#B3BD4D
+location	Thise	#B6BD4B
+location	Montreux-Chateau	#B9BC4A
+location	Rouen	#BBBC49
+location	Leuven	#BEBB48
+location	Starnberg	#C0BA47
+location	Strasbourg	#C3BA46
+location	Rome	#C5B945
+location	Milan	#C8B944
+location	valencia	#CBB843
+location	England	#CDB642
+location	Yorkshire	#CFB541
+location	Nottinghamshire	#D1B440
+location	Cardiff	#D3B240
+location	Rovaniemi	#D4B13F
+location	Jönköping	#D6AF3E
+location	Helsinki	#D8AE3E
+location	Sao Paulo	#DAAC3D
+location	Brasilia	#DCAB3C
+location	Rio de Janeiro	#DDA83C
+location	Manaus	#DEA63B
+location	Feira de Santana	#E0A33B
+location	Vila Velha	#E1A13A
+location	Mexico City	#E29E39
+location	King County	#E39C39
+location	Snohomish County	#E49938
+location	Pierce County	#E59738
+location	Solano County	#E69437
+location	Sonoma County	#E69036
+location	Orange County	#E68C36
+location	Kirkland	#E68935
+location	Seattle	#E68534
+location	Los Angeles	#E68134
+location	California	#E67E33
+location	San Francisco	#E67A32
+location	San Diego County	#E67631
+location	Marin County	#E67231
+location	San Francisco County	#E56E30
+location	San Joaquin County	#E5692F
+location	Sacramento County	#E4642E
+location	Santa Clara County	#E3602D
+location	Grant County	#E25B2C
+location	Snohomish County	#E2562B
+location	King County	#E1522A
+location	Clark County	#E04D29
+location	Umatilla County	#E04929
+location	Phoenix	#DF4428
+location	Chicago	#DE3F27
+location	Illinois	#DE3B26
+location	Wisconsin	#DD3625
+location	Dane County	#DD3124
+location	Boston	#DC2D24
+location	Nassau County	#DB2823
+location	Grand Princess	#AAAAAA
+
+division	China	#4377CD
+division	California	#72B485
+division	Grand Princess	#CEB541
+division	Washington	#E1502A
+
+country	China	#4C90C0
+country	Hong Kong	#4F1EA9
+country	Taiwan	#4A28B3
+country	Japan	#4432BD
+country	South Korea	#403DC5
+country	Nepal	#3F49CA
+country	India	#3F56CE
+country	Vietnam	#3F62D0
+country	Cambodia	#416DCE
+country	Thailand	#4379CD
+country	Malaysia	#4683C8
+country	Singapore	#4A8CC3
+country	Australia	#4E95BD
+country	New Zealand	#539BB4
+country	Saudi Arabia	#58A2AC
+country	Kuwait	#5DA8A3
+country	Georgia	#64AC99
+country	Poland	#6AB18F
+country	Hungary	#71B486
+country	France	#79B77D
+country	Denmark	#80B973
+country	Netherlands	#89BB6B
+country	Belgium	#91BC64
+country	Luxembourg	#9ABE5C
+country	Germany	#A3BE57
+country	Switzerland	#ACBD51
+country	Italy	#B5BD4C
+country	Spain	#BDBB48
+country	Czech Republic	#C5B945
+country	United Kingdom	#CDB642
+country	Ireland	#D3B23F
+country	Finland	#DAAD3D
+country	Sweden	#DEA63B
+country	Portugal	#E29E39
+country	Nigeria	#E59638
+country	Congo	#E68B35
+country	South Africa	#E67F33
+country	Chile	#E67331
+country	Brazil	#E4642E
+country	Panama	#E1552B
+country	Mexico	#DF4628
+country	USA	#DD3725
+country	Canada	#DB2823
+
+recency	Older	#416DCE
+recency	One month ago	#59A3AA
+recency	One week ago	#84BA6F
+recency	3-7 days ago	#BBBC49
+recency	1-2 days ago	#E29D39
+recency	New	#E1502A
+
+region	Oceania	#3F63CF
+region	Asia	#529BB5
+region	Africa	#76B67F
+region	Europe	#A8BD54
+region	North America	#D6B03F
+region	Central America	#E67D33
+region	South America	#DB2823
+
