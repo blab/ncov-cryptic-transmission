@@ -12,3 +12,11 @@ Following its emergence in Wuhan, China, in late November or early December 2019
 * `beast`: Contains XML with genome data, BEAST output and a Mathematica analysis notebook (Figure 1b)
 * `forward-sim`: Contains MatLab code to conduct forward simulation (Figure 3)
 * Figure 2 and Supp Figure 1 are generated from the Nextstrain `ncov` build run on 25 March 2020 available at [nextstrain.org/ncov/2020-03-25](https://nextstrain.org/ncov/2020-03-25). The code to reproduce these figures is available at commit [3ac03a9a](https://github.com/nextstrain/ncov/tree/3ac03a9a80dc4dd28aa8e44dd1312e6531f3a6ea).
+
+## Citation
+
+[Bedford T, Greninger AL, Roychoudhury P, Lea M Starita, Famulare M, Huang M, Nalla A, Pepper G, Reinhardt A, Xie H, Shrestha L, Nguyen TN, Adler A, Brandstetter E, Cho S, Giroux D, Peter D Han, Fay K, Frazar CD, Ilcisin M, Lacombe K, Lee J, Kiavand A, Richardson M, Sibley TR, Truong M, Wolf CR, Nickerson DA, Rieder MJ, Englund JA, Hadfield J, Hodcroft EB, Huddleston J, Moncla LH, Müller NF, Neher RA, Deng X, Gu W, Federman S, Chiu C, Duchin J, Gautom R, Melly G, Hiatt B, Dykema P, Lindquist S, Queen K, Tao Y, Uehara A, Tong S, MacCannell D, Armstrong GL, Baird GS, Chu HY, Jerome KR. 2020. Cryptic transmission of SARS-CoV-2 in Washington State. medRxiv: 2020.04.02.20051417.](https://doi.org/10.1101/2020.04.02.20051417)
+
+-----------------------------------
+
+All code (files ending in `.py`) is licensed under an [MIT License](MIT-LICENSE.txt).
