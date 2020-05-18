@@ -136,10 +136,13 @@ location	Boston	#DC2D24
 location	Nassau County	#DB2823
 location	Grand Princess	#AAAAAA
 
-division	China	#4377CD
-division	California	#72B485
-division	Grand Princess	#CEB541
-division	Washington	#E1502A
+division	China	#3F63CF
+division	Connecticut	#529BB5
+division	Minnesota	#76B67F
+division	British Columbia	#A8BD54
+division	California	#D6B03F
+division	Grand Princess	#E67D33
+division	Washington	#DB2823
 
 country	China	#4C90C0
 country	Hong Kong	#4F1EA9
