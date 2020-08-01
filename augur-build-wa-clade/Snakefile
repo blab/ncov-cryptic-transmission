@@ -1,0 +1,282 @@
+rule all:
+    input:
+        auspice_json = "auspice/ncov.json",
+        beast_alignment = "beast/ncov-wa.fasta"
+
+rule files:
+    params:
+        sequences = "data/sequences.fasta",
+        metadata = "data/metadata.tsv",
+        reference = "config/reference.gb",
+        colors = "config/colors.tsv",
+        auspice_config = "config/auspice_config.json",
+        auspice_config_gisaid = "config/auspice_config_gisaid.json",
+        auspice_config_zh = "config/auspice_config_zh.json",
+        lat_longs = "config/lat_longs.tsv",
+        description = "config/description.md",
+        description_zh = "config/description_zh.md",
+        clades = "config/clades.tsv"
+
+files = rules.files.params
+
+rule filter:
+    message:
+        """
+        Filtering
+        """
+    input:
+        sequences = files.sequences,
+        metadata = files.metadata
+    output:
+        sequences = "results/filtered.fasta"
+    params:
+        group_by = "region",
+        sequences_per_group = 500
+    shell:
+        """
+        augur filter \
+            --sequences {input.sequences} \
+            --metadata {input.metadata} \
+            --group-by {params.group_by} \
+            --sequences-per-group {params.sequences_per_group} \
+            --output {output.sequences}
+        """
+
+checkpoint partition_sequences:
+    input:
+        sequences = rules.filter.output.sequences
+    output:
+        split_sequences = directory("results/split_sequences")
+    params:
+        sequences_per_group = 150
+    shell:
+        """
+        python3 scripts/partition-sequences.py \
+            --sequences {input.sequences} \
+            --sequences-per-group {params.sequences_per_group} \
+            --output-dir {output.split_sequences}
+        """
+
+rule align:
+    message:
+        """
+        Aligning sequences to {input.reference}
+          - gaps relative to reference are considered real
+        """
+    input:
+        sequences = "results/split_sequences/{i}.fasta",
+        reference = files.reference
+    output:
+        alignment = "results/split_alignments/{i}.fasta"
+    threads: 2
+    shell:
+        """
+        augur align \
+            --sequences {input.sequences} \
+            --reference-sequence {input.reference} \
+            --output {output.alignment} \
+            --nthreads {threads} \
+            --remove-reference \
+            --fill-gaps
+        """
+
+def _get_alignments(wildcards):
+    checkpoint_output = checkpoints.partition_sequences.get(**wildcards).output[0]
+    return expand("results/split_alignments/{i}.fasta",
+                  i=glob_wildcards(os.path.join(checkpoint_output, "{i}.fasta")).i)
+
+rule aggregate_alignments:
+    message: "Collecting alignments"
+    input:
+        alignments = _get_alignments
+    output:
+        alignment = "results/aligned.fasta"
+    shell:
+        """
+        cat {input.alignments} > {output.alignment}
+        """
+
+rule mask:
+    message:
+        """
+        Mask bases in alignment
+          - masking {params.mask_from_beginning} from beginning
+          - masking {params.mask_from_end} from end
+          - masking other sites: {params.mask_sites}
+        """
+    input:
+        alignment = rules.aggregate_alignments.output.alignment
+    output:
+        alignment = "results/masked.fasta"
+    params:
+        mask_from_beginning = 130,
+        mask_from_end = 50,
+        mask_sites = "18529 29849 29851 29853"
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.alignment} \
+            --mask-from-beginning {params.mask_from_beginning} \
+            --mask-from-end {params.mask_from_end} \
+            --mask-sites {params.mask_sites} \
+            --output {output.alignment}
+        """
+
+rule tree:
+    message: "Building tree"
+    input:
+        alignment = rules.mask.output.alignment
+    output:
+        tree = "results/tree_raw.nwk"
+    threads: 4
+    shell:
+        """
+        augur tree \
+            --alignment {input.alignment} \
+            --output {output.tree} \
+            --nthreads {threads}
+        """
+
+rule refine:
+    message:
+        """
+        Refining tree
+          - estimate timetree
+          - use {params.coalescent} coalescent timescale
+          - estimate {params.date_inference} node dates
+        """
+    input:
+        tree = rules.tree.output.tree,
+        alignment = rules.mask.output,
+        metadata = files.metadata
+    output:
+        tree = "results/tree.nwk",
+        node_data = "results/branch_lengths.json"
+    params:
+        root = "USA/WA1/2020 Sichuan/SC-LZ-079/2020",
+        clock_rate = 0.0008,
+        clock_std_dev = 0.0004,
+        coalescent = "skyline",
+        date_inference = "marginal",
+        divergence_unit = "mutations"
+    shell:
+        """
+        augur refine \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --metadata {input.metadata} \
+            --output-tree {output.tree} \
+            --output-node-data {output.node_data} \
+            --root {params.root} \
+            --timetree \
+            --clock-rate {params.clock_rate} \
+            --clock-std-dev {params.clock_std_dev} \
+            --coalescent {params.coalescent} \
+            --date-inference {params.date_inference} \
+            --divergence-unit {params.divergence_unit} \
+            --date-confidence \
+            --no-covariance
+        """
+
+rule ancestral:
+    message:
+        """
+        Reconstructing ancestral sequences and mutations
+          - not inferring ambiguous mutations
+        """
+    input:
+        tree = "results/tree.nwk",
+        alignment = rules.mask.output
+    output:
+        node_data = "results/nt_muts.json"
+    params:
+        inference = "joint"
+    shell:
+        """
+        augur ancestral \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --output-node-data {output.node_data} \
+            --inference {params.inference} \
+            --infer-ambiguous
+        """
+
+rule translate:
+    message: "Translating amino acid sequences"
+    input:
+        tree = "results/tree.nwk",
+        node_data = rules.ancestral.output.node_data,
+        reference = files.reference
+    output:
+        node_data = "results/aa_muts.json"
+    shell:
+        """
+        augur translate \
+            --tree {input.tree} \
+            --ancestral-sequences {input.node_data} \
+            --reference-sequence {input.reference} \
+            --output-node-data {output.node_data} \
+        """
+
+rule export:
+    message: "Exporting data files for for auspice"
+    input:
+        tree = rules.refine.output.tree,
+        metadata = files.metadata,
+        branch_lengths = rules.refine.output.node_data,
+        nt_muts = rules.ancestral.output.node_data,
+        aa_muts = rules.translate.output.node_data,
+        auspice_config = files.auspice_config,
+        colors = files.colors,
+        lat_longs = files.lat_longs,
+        description = files.description
+    output:
+        auspice_json = "results/ncov_with_accessions.json"
+    shell:
+        """
+        augur export v2 \
+            --tree {input.tree} \
+            --metadata {input.metadata} \
+            --node-data {input.branch_lengths} {input.nt_muts} {input.aa_muts} \
+            --auspice-config {input.auspice_config} \
+            --colors {input.colors} \
+            --lat-longs {input.lat_longs} \
+            --description {input.description} \
+            --output {output.auspice_json}
+        """
+
+rule fix_colorings:
+    message: "Remove extraneous colorings for main build"
+    input:
+        auspice_json = rules.export.output.auspice_json
+    output:
+        auspice_json = "auspice/ncov.json"
+    shell:
+        """
+        python scripts/fix-colorings.py \
+            --input {input.auspice_json} \
+            --output {output.auspice_json}
+        """
+
+rule beast_alignment:
+    message: "Prep alignment for BEAST"
+    input:
+        alignment = rules.mask.output.alignment,
+        metadata = files.metadata
+    output:
+        alignment = "beast/ncov-wa.fasta"
+    shell:
+        """
+        python scripts/annotate-fasta.py \
+            --alignment {input.alignment} \
+            --metadata {input.metadata} \
+            --output {output.alignment}
+        """
+
+rule clean:
+    message: "Removing directories: {params}"
+    params:
+        "results ",
+        "auspice"
+    shell:
+        "rm -rfv {params}"
