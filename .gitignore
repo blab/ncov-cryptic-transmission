@@ -1,8 +1,8 @@
 # Files created by the pipeline, which we want to keep out of git
 # (or at least out of _this_ git repo).
-augur-build/auspice/
-augur-build/beast/
-augur-build/results/
+augur-build-wa-clade/auspice/
+augur-build-wa-clade/beast/
+augur-build-wa-clade/results/
 
 # Sensitive environment variables
 environment*

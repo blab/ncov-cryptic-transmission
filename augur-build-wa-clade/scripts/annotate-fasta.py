@@ -19,16 +19,17 @@ if __name__ == '__main__':
 
     df = pd.read_csv(args.metadata, sep='\t')
     strain_to_date = {}
-    strain_to_location = {}
+    strain_to_region = {}
     for index, row in df.iterrows():
         strain_to_date[row['strain']] = row['date']
-        strain_to_location[row['strain']] = row['division']
+        strain_to_region[row['strain']] = row['region']
 
     with open(args.output, 'w') as outfile:
         for record in Bio.SeqIO.parse(args.alignment, 'fasta'):
             print(record)
-            new_id = record.id + "|" + strain_to_date[record.id] + "|" + strain_to_location[record.id]
-            record.id = new_id
-            record.name = ""
-            record.description = ""
-            Bio.SeqIO.write(record, outfile, 'fasta')
+            if strain_to_region[record.id] == "Washington":
+                new_id = record.id + "|" + strain_to_date[record.id] + "|" + strain_to_region[record.id]
+                record.id = new_id
+                record.name = ""
+                record.description = ""
+                Bio.SeqIO.write(record, outfile, 'fasta')
