@@ -1,0 +1,66 @@
+{
+  "title": "Cryptic transmission of SARS-CoV-2 in Washington State",
+  "build_url": "https://github.com/blab/ncov-cryptic-transmission",
+  "maintainers": [
+    {"name": "Trevor Bedford", "url": "https://bedford.io/team/trevor-bedford/"}
+  ],
+  "colorings": [
+    {
+      "key": "region",
+      "title": "Region",
+      "type": "categorical"
+    },
+    {
+      "key": "location",
+      "title": "Location",
+      "type": "categorical"
+    },
+    {
+      "key": "author",
+      "title": "Authors",
+      "type": "categorical"
+    },
+    {
+      "key": "originating_lab",
+      "title": "Originating Lab",
+      "type": "categorical"
+    },
+    {
+      "key": "submitting_lab",
+      "title": "Submitting Lab",
+      "type": "categorical"
+    },
+    {
+      "key": "gisaid_epi_isl",
+      "type": "categorical"
+    },
+    {
+      "key": "genbank_accession",
+      "type": "categorical"
+    }
+  ],
+  "geo_resolutions": [
+    "location",
+    "division",
+    "country"
+  ],
+  "display_defaults": {
+    "color_by": "region",
+    "distance_measure": "div",
+    "geo_resolution": "division",
+    "map_triplicate": false,
+    "branch_label": "none"
+  },
+  "filters": [
+    "region",
+    "location",
+    "author",
+    "originating_lab",
+    "submitting_lab"
+  ],
+  "panels": [
+    "tree",
+    "map",
+    "entropy"
+  ]
+}

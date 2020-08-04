@@ -1,0 +1,388 @@
+from os import environ
+from packaging import version
+from socket import getfqdn
+from getpass import getuser
+from snakemake.logging import logger
+import sys
+from shutil import which
+
+#
+# Verify that required versions of dependencies are installed.
+#
+MIN_AUGUR_VERSION = "7.0.2"
+
+try:
+    from augur.__version__ import __version__ as augur_version
+except ModuleNotFoundError:
+    logger.error("ERROR: Could not find augur. Follow installation instructions at https://nextstrain.org/docs/ and try again.")
+    sys.exit(1)
+
+if version.parse(augur_version) < version.parse(MIN_AUGUR_VERSION):
+    logger.error("ERROR: Found version '%s' of augur, but version '%s' or greater is required" % (augur_version, MIN_AUGUR_VERSION))
+    sys.exit(1)
+
+SHELL_COMMANDS_NEEDED = ["augur", "iqtree", "mafft"]
+for sh_cmd in SHELL_COMMANDS_NEEDED:
+    if not which(sh_cmd):
+        logger.error(f"ERROR: `{sh_cmd}` is not available as a shell command. Please follow installation instructions at https://nextstrain.org/docs/ and try again.")
+        sys.exit(1)
+
+# For information on how to run 'regions' runs, see Snakefile_Regions
+
+# Add new regions here!
+REGIONS = ["_washington"]
+
+wildcard_constraints:
+    region = "|".join(REGIONS) + "||",
+
+# simple rule to call snakemake for outsider users
+rule all:
+    input:
+        auspice_json = "auspice/ncov.json",
+
+rule files:
+    params:
+        sequences = "data/sequences.fasta",
+        metadata = "data/metadata.tsv",
+        include = "config/include.txt",
+        exclude = "config/exclude.txt",
+        reference = "config/reference.gb",
+        colors = "config/colors.tsv",
+        auspice_config = "config/auspice_config.json",
+        lat_longs = "config/lat_longs.tsv",
+        description = "config/description.md"
+
+files = rules.files.params
+
+rule filter:
+    message:
+        """
+        Filtering to
+          - excluding strains in {input.exclude}
+          - minimum genome length of {params.min_length}
+        """
+    input:
+        sequences = files.sequences,
+        metadata = files.metadata,
+        include = files.include,
+        exclude = files.exclude
+    output:
+        sequences = "results/filtered.fasta"
+    params:
+        min_length = 25000,
+        exclude_where = "date='2020' date='2020-01-XX' date='2020-02-XX' date='2020-03-XX' date='2020-04-XX' date='2020-01' date='2020-02' date='2020-03' date='2020-04'",
+        group_by = "division year month",
+        sequences_per_group = 1000
+    shell:
+        """
+        augur filter \
+            --sequences {input.sequences} \
+            --metadata {input.metadata} \
+            --include {input.include} \
+            --exclude {input.exclude} \
+            --exclude-where {params.exclude_where}\
+            --min-length {params.min_length} \
+            --group-by {params.group_by} \
+            --sequences-per-group {params.sequences_per_group} \
+            --output {output.sequences}
+        """
+
+checkpoint partition_sequences:
+    input:
+        sequences = rules.filter.output.sequences
+    output:
+        split_sequences = directory("results/split_sequences/pre/")
+    params:
+        sequences_per_group = 150
+    shell:
+        """
+        python3 scripts/partition-sequences.py \
+            --sequences {input.sequences} \
+            --sequences-per-group {params.sequences_per_group} \
+            --output-dir {output.split_sequences}
+        """
+
+rule partitions_intermediate:
+    message:
+        """
+        partitions_intermediate: Copying sequence fastas
+        {wildcards.cluster}
+        """
+    input:
+        "results/split_sequences/pre/{cluster}.fasta"
+    output:
+        "results/split_sequences/post/{cluster}.fasta"
+    shell:
+        "cp {input} {output}"
+
+rule align:
+    message:
+        """
+        Aligning sequences to {input.reference}
+          - gaps relative to reference are considered real
+        Cluster:  {wildcards.cluster}
+        """
+    input:
+        sequences = rules.partitions_intermediate.output,
+        reference = files.reference
+    output:
+        alignment = "results/split_alignments/{cluster}.fasta"
+    threads: 2
+    shell:
+        """
+        augur align \
+            --sequences {input.sequences} \
+            --reference-sequence {input.reference} \
+            --output {output.alignment} \
+            --nthreads {threads} \
+            --remove-reference \
+            --fill-gaps
+        """
+
+def _get_alignments(wildcards):
+    checkpoint_output = checkpoints.partition_sequences.get(**wildcards).output[0]
+    return expand("results/split_alignments/{i}.fasta",
+                  i=glob_wildcards(os.path.join(checkpoint_output, "{i}.fasta")).i)
+
+rule aggregate_alignments:
+    message: "Collecting alignments"
+    input:
+        alignments = _get_alignments
+    output:
+        alignment = "results/aligned.fasta"
+    shell:
+        """
+        cat {input.alignments} > {output.alignment}
+        """
+
+rule mask:
+    message:
+        """
+        Mask bases in alignment
+          - masking {params.mask_from_beginning} from beginning
+          - masking {params.mask_from_end} from end
+          - masking other sites: {params.mask_sites}
+        """
+    input:
+        alignment = rules.aggregate_alignments.output.alignment
+    output:
+        alignment = "results/masked.fasta"
+    params:
+        mask_from_beginning = 130,
+        mask_from_end = 50,
+        mask_sites = "18529 29849 29851 29853"
+    shell:
+        """
+        python3 scripts/mask-alignment.py \
+            --alignment {input.alignment} \
+            --mask-from-beginning {params.mask_from_beginning} \
+            --mask-from-end {params.mask_from_end} \
+            --mask-sites {params.mask_sites} \
+            --output {output.alignment}
+        """
+
+rule subsample:
+    input:
+        rules.mask.output.alignment
+    output:
+        "results/subsampled_alignment{region}.fasta"
+    shell:
+        """
+        cp {input} {output}
+        """
+
+rule adjust_metadata:
+    input:
+        files.metadata
+    output:
+        "results/metadata_adjusted{region}.tsv"
+    shell:
+        """
+        cp {input} {output}
+        """
+
+rule tree:
+    message: "Building tree"
+    input:
+        alignment = "results/subsampled_alignment{region}.fasta"
+    output:
+        tree = "results/tree_raw{region}.nwk"
+    benchmark:
+        "benchmarks/tree{region}.txt"
+    threads: 4
+    resources:
+        # Multiple sequence alignments can use up to 40 times their disk size in
+        # memory, especially for larger alignments.
+        # Note that Snakemake >5.10.0 supports input.size_mb to avoid converting from bytes to MB.
+        mem_mb=lambda wildcards, input: 40 * int(input.size / 1024 / 1024)
+    shell:
+        """
+        augur tree \
+            --alignment {input.alignment} \
+            --output {output.tree} \
+            --nthreads {threads}
+        """
+
+def _get_alignments_for_tree(wildcards):
+    """Global builds use the complete alignment of sequences while regional builds
+    use a subsampled set of sequences.
+    """
+    if wildcards.region == "":
+        return rules.mask.output.alignment
+    else:
+        return rules.subsample_regions.output.alignment
+
+rule refine:
+    message:
+        """
+        Refining tree
+          - estimate timetree
+          - use {params.coalescent} coalescent timescale
+          - estimate {params.date_inference} node dates
+        """
+    input:
+        tree = rules.tree.output.tree,
+        alignment = _get_alignments_for_tree,
+        metadata = "results/metadata_adjusted{region}.tsv"
+    output:
+        tree = "results/tree{region}.nwk",
+        node_data = "results/branch_lengths{region}.json"
+    threads: 1
+    params:
+        root = "Wuhan/Hu-1/2019 Wuhan/WH01/2019",
+        clock_rate = 0.0008,
+        clock_std_dev = 0.0004,
+        coalescent = "skyline",
+        date_inference = "marginal",
+        divergence_unit = "mutations"
+    shell:
+        """
+        augur refine \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --metadata {input.metadata} \
+            --output-tree {output.tree} \
+            --output-node-data {output.node_data} \
+            --timetree \
+            --clock-rate {params.clock_rate} \
+            --clock-std-dev {params.clock_std_dev} \
+            --coalescent {params.coalescent} \
+            --date-inference {params.date_inference} \
+            --divergence-unit {params.divergence_unit} \
+            --date-confidence \
+            --no-covariance
+        """
+
+rule ancestral:
+    message:
+        """
+        Reconstructing ancestral sequences and mutations
+          - inferring ambiguous mutations
+        """
+    input:
+        tree = "results/tree{region}.nwk",
+        alignment = _get_alignments_for_tree
+    output:
+        node_data = "results/nt_muts{region}.json"
+    params:
+        inference = "joint"
+    shell:
+        """
+        augur ancestral \
+            --tree {input.tree} \
+            --alignment {input.alignment} \
+            --output-node-data {output.node_data} \
+            --inference {params.inference} \
+            --infer-ambiguous
+        """
+
+rule translate:
+    message: "Translating amino acid sequences"
+    input:
+        tree = "results/tree{region}.nwk",
+        node_data = rules.ancestral.output.node_data,
+        reference = files.reference
+    output:
+        node_data = "results/aa_muts{region}.json"
+    shell:
+        """
+        augur translate \
+            --tree {input.tree} \
+            --ancestral-sequences {input.node_data} \
+            --reference-sequence {input.reference} \
+            --output-node-data {output.node_data} \
+        """
+
+rule traits:
+    message:
+        """
+        Inferring ancestral traits for {params.columns!s}
+          - increase uncertainty of reconstruction by {params.sampling_bias_correction} to partially account for sampling bias
+        """
+    input:
+        tree = "results/tree{region}.nwk",
+        metadata = "results/metadata_adjusted{region}.tsv"
+    output:
+        node_data = "results/traits{region}.json",
+    params:
+        columns = "region",
+        sampling_bias_correction = 2.5
+    shell:
+        """
+        augur traits \
+            --tree {input.tree} \
+            --metadata {input.metadata} \
+            --output {output.node_data} \
+            --columns {params.columns} \
+            --confidence \
+            --sampling-bias-correction {params.sampling_bias_correction} \
+        """
+
+rule export:
+    message: "Exporting data files for for auspice"
+    input:
+        tree = rules.refine.output.tree,
+        metadata = "results/metadata_adjusted{region}.tsv",
+        branch_lengths = rules.refine.output.node_data,
+        nt_muts = rules.ancestral.output.node_data,
+        aa_muts = rules.translate.output.node_data,
+        traits = rules.traits.output.node_data,
+        auspice_config = files.auspice_config,
+        colors = files.colors,
+        lat_longs = files.lat_longs,
+        description = files.description
+    output:
+        auspice_json = "results/ncov_with_accessions{region}.json"
+    shell:
+        """
+        augur export v2 \
+            --tree {input.tree} \
+            --metadata {input.metadata} \
+            --node-data {input.branch_lengths} {input.nt_muts} {input.aa_muts} {input.traits} \
+            --auspice-config {input.auspice_config} \
+            --colors {input.colors} \
+            --lat-longs {input.lat_longs} \
+            --description {input.description} \
+            --output {output.auspice_json}
+        """
+
+rule fix_colorings:
+    message: "Remove extraneous colorings for main build"
+    input:
+        auspice_json = rules.export.output.auspice_json
+    output:
+        auspice_json = "auspice/ncov{region}.json"
+    shell:
+        """
+        python scripts/fix-colorings.py \
+            --input {input.auspice_json} \
+            --output {output.auspice_json}
+        """
+
+rule clean:
+    message: "Removing directories: {params}"
+    params:
+        "results ",
+        "auspice"
+    shell:
+        "rm -rfv {params}"
