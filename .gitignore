@@ -6,6 +6,8 @@ augur-build-introductions/results/
 augur-build-wa-clade/auspice/
 augur-build-wa-clade/beast/
 augur-build-wa-clade/results/
+beast-wa-clade/ncov-wa-clade.ops
+beast-wa-clade/ncov-wa-clade.trees
 
 # Sensitive environment variables
 environment*
