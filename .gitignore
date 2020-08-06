@@ -8,6 +8,9 @@ augur-build-wa-clade/beast/
 augur-build-wa-clade/results/
 beast-wa-clade/ncov-wa-clade.ops
 beast-wa-clade/ncov-wa-clade.trees
+beast-clock/ncov_clock.fasta
+beast-clock/ncov-clock.ops
+beast-clock/ncov-clock.trees
 
 # Sensitive environment variables
 environment*
